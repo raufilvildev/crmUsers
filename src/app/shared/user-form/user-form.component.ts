@@ -75,8 +75,6 @@ export class UserFormComponent {
         toast.error(error);
         this.router.navigate(['**']);
       }
-      
-      
     } else {
       this.usersService.updateUser(this._id,userForm);
     }
