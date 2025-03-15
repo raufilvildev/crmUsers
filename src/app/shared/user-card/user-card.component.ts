@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { IUser } from '../../interfaces/iuser.interface';
 import { RouterLink } from '@angular/router';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-user-card',
@@ -18,4 +19,11 @@ export class UserCardComponent {
     email      : '',
     image      : '',
   };
+
+
+  usersService = inject(UsersService);
+
+  deleteUser(_id: string) {
+    this.usersService.deleteUser(_id);
+  }
 }

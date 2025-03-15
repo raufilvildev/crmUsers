@@ -1,1 +1,34 @@
-<p>user-form works!</p>
+<div class="p-5">
+    @if (isNewUser) {
+        <h2 class="mb-4">NUEVO USUARIO</h2>
+    } @else {
+        <h2 class="mb-4">ACTUALIZAR USUARIO</h2>
+    }
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)">
+        <div class="form-group mb-3">
+            <label for="first_name" class="mb-1">Nombre del usuario</label>
+            <input type="text" class="form-control" id="first_name" formControlName="first_name" aria-describedby="first_name" [style.color]="(!isNewUser) ? 'red' : 'black'">
+        </div>
+        <div class="form-group mb-3">
+            <label for="last_name" class="mb-1">Apellidos del usuario</label>
+            <input type="text" class="form-control" id="last_name" formControlName="last_name" aria-describedby="last_name" [style.color]="(!isNewUser) ? 'red' : 'black'">
+        </div>
+        <div class="form-group mb-3">
+            <label for="username" class="mb-1">Usuario</label>
+            <input type="text" class="form-control" id="username" formControlName="username" aria-describedby="username" [style.color]="(!isNewUser) ? 'red' : 'black'">
+        </div>
+        <div class="form-group mb-3">
+            <label for="email" class="mb-1">Correo electrónico</label>
+            <input type="text" class="form-control" id="email" formControlName="email" aria-describedby="email" [style.color]="(!isNewUser) ? 'red' : 'black'">
+        </div>
+        <div class="form-group mb-3">
+            <label for="image" class="mb-1">Url de la imagen</label>
+            <input type="text" class="form-control" id="image" formControlName="image" aria-describedby="image" [style.color]="(!isNewUser) ? 'red' : 'black'">
+        </div>
+        @if (!(isNewUser)) {
+            <button type="submit" class="btn btn-light" [disabled]="userForm.invalid">Actualizar</button>
+        } @else {
+            <button type="submit" class="btn btn-light" [disabled]="userForm.invalid">Crear</button>
+        }
+    </form>
+</div>

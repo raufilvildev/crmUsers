@@ -1,25 +1,20 @@
-<div class="card p-3 h-100 d-flex flex-column">
-    <img [src]="user.image" class="img-fluid card-img-top rounded-circle mb-4"
-        [alt]="user.first_name + ' ' + user.last_name">
-    <div class="card-body d-flex flex-column justify-content-between p-0">
-        <h5 class="card-title text-center">{{ user.first_name }} {{ user.last_name }}</h5>
-        <ul class="p-0 m-0">
-            <div class="container p-0">
-                <div class="row g-1">
-                    <li [routerLink]="['/user', user._id]" class="list-group-item col-4 m-0 p-2 border-0 bg-white h-100 d-flex flex-column align-items-stretch button-hover">
-                        <img class="img-fluid p-2" src="images/search_icon.svg" alt="Ver detalles">
-                        <p class="text-center">Ver detalles</p>
-                    </li>
-                    <li [routerLink]="['/updateuser', user._id]" class="list-group-item col-4 m-0 p-2 border-0 bg-white h-100 d-flex flex-column align-items-stretch button-hover">
-                        <img class="img-fluid p-2" src="images/update_icon.svg" alt="Actualizar">
-                        <p class="text-center">Actualizar</p>
-                    </li>
-                    <li class="list-group-item col-4 m-0 p-2 border-0 bg-white h-100 d-flex flex-column align-items-stretch button-hover">
-                        <img class="img-fluid p-2" src="images/delete_icon.svg" alt="Borrar">
-                        <p class="text-center">Borrar</p>
-                    </li>
-                </div>
-            </div>
-        </ul>
+<div class="p-3 rounded border border-dark-subtle h-100 d-flex flex-column">
+    <img [src]="user.image" [alt]="user.first_name + ' ' + user.last_name" class="img-fluid rounded-circle mb-3">
+    <h5 class="mb-3 text-center">{{ user.first_name }} {{ user.last_name }}</h5>
+    <div class="container text-center">
+        <div class="row">
+            <a [routerLink]="['/user',user._id]" class="btn button-hover col-6 col-sm-4 p-1 text-reset text-decoration-none">
+                <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#dedede" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                <p>Ver detalles</p>
+            </a>
+            <a [routerLink]="['/updateuser',user._id]" class="btn button-hover col-6 col-sm-4 p-1 text-reset text-decoration-none">
+                <svg fill="#000000" width="40px" height="40px" viewBox="0 0 24 24" id="update-alt" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M5.07,8A8,8,0,0,1,20,12" style="fill: none; stroke: #dedede; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="primary-2" data-name="primary" d="M18.93,16A8,8,0,0,1,4,12" style="fill: none; stroke: #dedede; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><polyline id="primary-3" data-name="primary" points="5 3 5 8 10 8" style="fill: none; stroke: #dedede; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline><polyline id="primary-4" data-name="primary" points="19 21 19 16 14 16" style="fill: none; stroke: #dedede; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline></g></svg>
+                <p>Actualizar</p>
+            </a>
+            <a class="btn button-hover col-12 col-sm-4 p-1 text-reset text-decoration-none" (click)="deleteUser(user._id)">
+                <svg width="40px" height="40px" viewBox="0 0 48 48" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style>.cls-1{fill:#dedede;}.cls-2{opacity:0.35;}</style> </defs> <title></title> <path class="cls-1" d="M36,44H12a3,3,0,0,1-3-3V12a1,1,0,0,1,1-1H38a1,1,0,0,1,1,1V41A3,3,0,0,1,36,44ZM11,13V41a1,1,0,0,0,1,1H36a1,1,0,0,0,1-1V13Z"></path> <g class="cls-2"> <path class="cls-1" d="M35,12V38a2,2,0,0,1-2,2H10v1a2,2,0,0,0,2,2H36a2,2,0,0,0,2-2V12Z"></path> </g> <path class="cls-1" d="M43,13H5a1,1,0,0,1,0-2H43a1,1,0,0,1,0,2Z"></path> <path class="cls-1" d="M17,35a1,1,0,0,1-1-1V20a1,1,0,0,1,2,0V34A1,1,0,0,1,17,35Z"></path> <path class="cls-1" d="M31,35a1,1,0,0,1-1-1V20a1,1,0,0,1,2,0V34A1,1,0,0,1,31,35Z"></path> <path class="cls-1" d="M24,37a1,1,0,0,1-1-1V18a1,1,0,0,1,2,0V36A1,1,0,0,1,24,37Z"></path> <path class="cls-1" d="M33,13H15a1,1,0,0,1-1-1V7a3,3,0,0,1,3-3H31a3,3,0,0,1,3,3v5A1,1,0,0,1,33,13ZM16,11H32V7a1,1,0,0,0-1-1H17a1,1,0,0,0-1,1Z"></path> </g></svg>
+                <p>Borrar</p>
+            </a>
+        </div>
     </div>
 </div>
