@@ -1,0 +1,25 @@
+<div class="card p-3 h-100 d-flex flex-column">
+    <img [src]="user.image" class="img-fluid card-img-top rounded-circle mb-4"
+        [alt]="user.first_name + ' ' + user.last_name">
+    <div class="card-body d-flex flex-column justify-content-between p-0">
+        <h5 class="card-title text-center">{{ user.first_name }} {{ user.last_name }}</h5>
+        <ul class="p-0 m-0">
+            <div class="container p-0">
+                <div class="row g-1">
+                    <li [routerLink]="['/user', user._id]" class="list-group-item col-4 m-0 p-2 border-0 bg-white h-100 d-flex flex-column align-items-stretch button-hover">
+                        <img class="img-fluid p-2" src="images/search_icon.svg" alt="Ver detalles">
+                        <p class="text-center">Ver detalles</p>
+                    </li>
+                    <li [routerLink]="['/updateuser', user._id]" class="list-group-item col-4 m-0 p-2 border-0 bg-white h-100 d-flex flex-column align-items-stretch button-hover">
+                        <img class="img-fluid p-2" src="images/update_icon.svg" alt="Actualizar">
+                        <p class="text-center">Actualizar</p>
+                    </li>
+                    <li class="list-group-item col-4 m-0 p-2 border-0 bg-white h-100 d-flex flex-column align-items-stretch button-hover">
+                        <img class="img-fluid p-2" src="images/delete_icon.svg" alt="Borrar">
+                        <p class="text-center">Borrar</p>
+                    </li>
+                </div>
+            </div>
+        </ul>
+    </div>
+</div>

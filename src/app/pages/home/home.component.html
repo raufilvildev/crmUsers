@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div class="container">
+    <div class="row">
+        @for (user of users; track user._id) {
+            <div class="col-lg-3 col-md-6 col-sm-12 mt-4">
+                <app-user-card [user]="user"></app-user-card>
+            </div>
+        }
+    </div>
+</div>
