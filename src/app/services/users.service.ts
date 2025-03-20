@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { IUser } from '../interfaces/iuser.interface';
+import { IUser, IUserForm } from '../interfaces/iuser.interface';
 import { IResponse } from '../interfaces/iresponse.interface';
 import { toast } from 'ngx-sonner';
 import { Router } from '@angular/router';
@@ -22,11 +22,11 @@ export class UsersService {
     return lastValueFrom(this.httpClient.get<IUser>(`${this.endpoint}/${_id}`));
   }
 
-  createUser(user: any): Promise<IUser> {
+  createUser(user: IUserForm): Promise<IUser> {
     return lastValueFrom(this.httpClient.post<IUser>(this.endpoint, user));
   }
 
-  updateUser(_id: string, user: any) {
+  updateUser(_id: string, user: IUserForm) {
     toast('¿Estás seguro de que quieres actualizar a este usuario?', {
       action: {
         label: 'Aceptar',
@@ -44,7 +44,6 @@ export class UsersService {
             toast.error(error);
             this.router.navigate(['**']);
           }
-          
         }
       }
     })
